@@ -28,6 +28,7 @@
   <modules>
     <module>server1</module>
     <module>serviceregistrationserver</module>
+    <module>web-server</module>
   </modules>
 
   <dependencies>
