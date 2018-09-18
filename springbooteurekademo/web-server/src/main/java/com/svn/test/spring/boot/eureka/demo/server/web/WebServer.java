@@ -1,9 +1,14 @@
 package com.svn.test.spring.boot.eureka.demo.server.web;
 
+import com.svn.test.spring.boot.eureka.demo.server.web.client.AccountsServiceClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Accounts web-server. Works as a microservice client, fetching data from the
@@ -33,37 +38,31 @@ public class WebServer {
     SpringApplication.run(WebServer.class, args);
   }
 
-//  /**
-//   * A customized RestTemplate that has the ribbon load balancer build in.
-//   * Note that prior to the "Brixton"
-//   *
-//   * @return
-//   */
-//  @LoadBalanced
-//  @Bean
-//  RestTemplate restTemplate() {
-//    return new RestTemplate();
-//  }
-//
-//  /**
-//   * The AccountService encapsulates the interaction with the micro-service.
-//   *
-//   * @return A new service instance.
-//   */
-//  @Bean
-//  public WebAccountsService accountsService() {
-//    return new WebAccountsService(ACCOUNTS_SERVICE_URL);
-//  }
-//
-//  /**
-//   * Create the controller, passing it the {@link WebAccountsService} to use.
-//   *
-//   * @return
-//   */
-//  @Bean
-//  public WebAccountsController accountsController() {
-//    return new WebAccountsController(accountsService());
-//  }
+  /**
+   * A customized RestTemplate that has the ribbon load balancer build in.
+   * Note that prior to the "Brixton"
+   */
+  @LoadBalanced
+  @Bean
+  RestTemplate restTemplate(RestTemplateBuilder builder) {
+    return builder.build();
+  }
+
+  /**
+   * The AccountsServiceClient encapsulates the interaction with the micro-service.
+   */
+  @Bean
+  public AccountsServiceClient accountsService() {
+    return new AccountsServiceClient(ACCOUNTS_SERVICE_URL);
+  }
+
+  /**
+   * Create the controller, passing it the {@link AccountsServiceClient} to use.
+   */
+  @Bean
+  public WebAccountsController accountsController() {
+    return new WebAccountsController();
+  }
 //
 //  @Bean
 //  public HomeController homeController() {
