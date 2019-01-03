@@ -1,0 +1,5 @@
+option java_package = "com.svn.test.account.mega";
+
+message Account {
+  optional string number = 1;
+}

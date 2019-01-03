@@ -1,0 +1,7 @@
+option java_package = "com.svn.test.account.mega";
+
+service MegaAccount {
+  // Obtains the feature at a given position.
+  rpc GetFeature (Point) returns (Feature) {
+  }
+}

@@ -11,4 +11,5 @@ import lombok.Value;
 @JsonDeserialize(builder = Account.AccountBuilder.class)
 public class Account {
   private final String number;
+  private final String bank;
 }
