@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.svn.test</groupId>
@@ -11,12 +11,6 @@
 
   <url>https://spring.io/blog/2015/07/14/microservices-with-spring</url>
 
-  <!--<parent>-->
-  <!--<artifactId>microservices-test</artifactId>-->
-  <!--<groupId>com.svn.test</groupId>-->
-  <!--<version>1.0-SNAPSHOT</version>-->
-  <!--</parent>-->
-
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -24,14 +18,9 @@
     <relativePath/>
   </parent>
 
-
-  <modules>
-    <module>server1</module>
-    <module>serviceregistrationserver</module>
-    <module>web-server</module>
-    <module>shared</module>
-    <module>web-server-reactive</module>
-  </modules>
+  <properties>
+    <spring-cloud.version>Finchley.SR2</spring-cloud.version>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -77,12 +66,19 @@
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
-        <version>Finchley.RELEASE</version>
+        <version>${spring-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
 
+  <modules>
+    <module>server1</module>
+    <module>serviceregistrationserver</module>
+    <module>web-server</module>
+    <module>shared</module>
+    <module>web-server-reactive</module>
+  </modules>
 
 </project>
