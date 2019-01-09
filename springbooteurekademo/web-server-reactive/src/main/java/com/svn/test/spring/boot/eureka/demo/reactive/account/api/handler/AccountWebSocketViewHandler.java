@@ -1,4 +1,4 @@
-package com.svn.test.spring.boot.eureka.demo.reactive.api.account.handler;
+package com.svn.test.spring.boot.eureka.demo.reactive.account.api.handler;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;

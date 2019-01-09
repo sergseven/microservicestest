@@ -1,4 +1,4 @@
-package com.svn.test.spring.boot.eureka.demo.reactive.api.account.handler;
+package com.svn.test.spring.boot.eureka.demo.reactive.account.api.handler;
 
 import java.time.Duration;
 import lombok.extern.slf4j.Slf4j;
