@@ -5,16 +5,20 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.5.RELEASE</version>
+    <version>2.1.2.RELEASE</version>
     <relativePath/>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
+  <groupId>com.svn.test</groupId>
   <artifactId>web-server-reactive</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
 
   <properties>
-    <spring-cloud.version>Finchley.SR2</spring-cloud.version>
-    <spring-cloud-contract.version>2.0.2.RELEASE</spring-cloud-contract.version>
+    <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+    <spring-cloud-contract.version>2.1.0.RELEASE</spring-cloud-contract.version>
+    <reactor-test.version>3.2.3.RELEASE</reactor-test.version>
+    <assertj-core.version>3.11.1</assertj-core.version>
   </properties>
 
   <dependencies>
@@ -32,6 +36,16 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-contract-verifier</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>spring-web-test-client</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.2</version>
@@ -46,13 +60,13 @@
     <dependency>
       <groupId>io.projectreactor</groupId>
       <artifactId>reactor-test</artifactId>
-      <version>3.2.3.RELEASE</version>
+      <version>${reactor-test.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
-      <version>3.11.1</version>
+      <version>${assertj-core.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -64,7 +78,20 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+        <version>${spring-cloud-contract.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <baseClassForTests>
+            com.svn.test.spring.boot.eureka.demo.reactive.account.api.BaseAccountContractTest
+          </baseClassForTests>
+          <testMode>WEBTESTCLIENT</testMode>
+        </configuration>
+      </plugin>
     </plugins>
+
   </build>
 
   <dependencyManagement>
@@ -78,5 +105,43 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>spring-releases</id>
+      <name>Spring Releases</name>
+      <url>https://repo.spring.io/release</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>spring-releases</id>
+      <name>Spring Releases</name>
+      <url>https://repo.spring.io/release</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 
 </project>

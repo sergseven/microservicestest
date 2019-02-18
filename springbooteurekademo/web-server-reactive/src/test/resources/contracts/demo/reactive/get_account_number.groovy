@@ -1,3 +1,5 @@
+package contracts.demo.reactive
+
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
@@ -6,6 +8,7 @@ Contract.make {
     request {
         url "/account"
         method GET()
+
     }
 
     response {
@@ -15,7 +18,7 @@ Contract.make {
         }
         body(
                 accountNumber: "12345",
-                owner: "foo",
+                owner: "foo name",
         )
     }
 }
