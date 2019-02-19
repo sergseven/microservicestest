@@ -8,12 +8,15 @@ import org.junit.jupiter.api.Test;
 
 class AccountMapperTest {
 
-  AccountMapper uut = AccountMapper.INSTANCE;
+  //  AccountMapper uut = AccountMapper.INSTANCE;
 
   @Test
   void shouldConvertAllProperties() {
-    AccountDto dto = uut.from(Account.builder().number("num1").bank("pkb").build());
+    ManualAccountMapper uut = new ManualAccountMapper();
 
-    assertThat(dto.getNumber()).isEqualTo("num2");
+    Account account = uut.from(AccountDto.builder().accountNumber("num1").bankCode("pkb").owner("own1").build());
+
+    assertThat(account.getNumber()).isEqualTo("num2");
+    assertThat(account.getBank()).isEqualTo("pkb");
   }
 }
