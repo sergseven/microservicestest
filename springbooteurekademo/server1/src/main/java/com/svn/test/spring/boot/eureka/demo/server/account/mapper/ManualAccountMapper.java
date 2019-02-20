@@ -12,6 +12,6 @@ public class ManualAccountMapper implements AccountMapper {
 
   @Override
   public Account from(AccountDto dto) {
-    return Account.builder().number(dto.getAccountNumber()).build();
+    return Account.builder().number(dto.getAccountNumber()).bank(dto.getBankCode()).owner(dto.getOwnerCode()).build();
   }
 }

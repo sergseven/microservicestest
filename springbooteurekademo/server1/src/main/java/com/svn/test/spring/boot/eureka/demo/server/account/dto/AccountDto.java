@@ -14,7 +14,7 @@ public class AccountDto {
 
   String accountNumber;
   String bankCode;
-  String owner;
+  String ownerCode;
 
   @JsonPOJOBuilder(withPrefix = "")
   public static class AccountDtoBuilder {

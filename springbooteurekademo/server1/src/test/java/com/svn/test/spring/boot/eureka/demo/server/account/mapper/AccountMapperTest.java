@@ -14,9 +14,10 @@ class AccountMapperTest {
   void shouldConvertAllProperties() {
     ManualAccountMapper uut = new ManualAccountMapper();
 
-    Account account = uut.from(AccountDto.builder().accountNumber("num1").bankCode("pkb").owner("own1").build());
+    Account account = uut.from(AccountDto.builder().accountNumber("num1").bankCode("pkb").ownerCode("own1").build());
 
-    assertThat(account.getNumber()).isEqualTo("num2");
+    assertThat(account.getNumber()).isEqualTo("num1");
     assertThat(account.getBank()).isEqualTo("pkb");
+    assertThat(account.getOwner()).isEqualTo("own1");
   }
 }
