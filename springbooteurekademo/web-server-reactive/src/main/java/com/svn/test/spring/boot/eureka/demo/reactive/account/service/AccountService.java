@@ -31,6 +31,10 @@ public class AccountService {
     return Mono.just("12345");
   }
 
+  public Mono<String> getAccountOwner() {
+    return Mono.just("Mr Sergey");
+  }
+
   public Mono<String> getAccountOwnerCode() {
     return Mono.just("OWNER_CODE_1");
   }

@@ -23,10 +23,16 @@ public class AccountHandler {
     return ServerResponse
         .ok()
         .contentType(MediaType.APPLICATION_JSON)
-        .body(fromPublisher(
-            Mono.zip(accountService.getAccountNumber(), accountService.getAccountOwnerCode())
-                .map(function(AccountMapper::from)),
-            AccountDto.class));
+        .body(fromPublisher(provideAccount(), AccountDto.class));
+  }
+
+  private Mono<AccountDto> provideAccount() {
+    return
+        Mono.zip(
+            accountService.getAccountNumber(),
+            accountService.getAccountOwner(),
+            accountService.getAccountOwnerCode())
+            .map(function(AccountMapper::from));
   }
 
 }
