@@ -18,7 +18,7 @@ Contract.make {
         }
         body(
                 accountNumber: "12345",
-                owner: "foo name",
+                ownerCode: "OWNER_CODE_1",
         )
     }
 }

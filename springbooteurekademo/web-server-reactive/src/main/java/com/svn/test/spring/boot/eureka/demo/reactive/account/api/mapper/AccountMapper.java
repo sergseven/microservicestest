@@ -7,8 +7,8 @@ import com.svn.test.spring.boot.eureka.demo.reactive.account.api.dto.AccountDto;
  */
 public class AccountMapper {
 
-  public static AccountDto from(String accountNumber) {
-    return new AccountDto(accountNumber, "foo name");
+  public static AccountDto from(String accountNumber, String ownerCode) {
+    return new AccountDto(accountNumber, ownerCode);
   }
 
 }

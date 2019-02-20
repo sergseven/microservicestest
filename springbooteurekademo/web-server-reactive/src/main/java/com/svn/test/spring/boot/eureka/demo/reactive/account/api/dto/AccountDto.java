@@ -6,5 +6,5 @@ import lombok.Value;
 public class AccountDto {
 
   String accountNumber;
-  String owner;
+  String ownerCode;
 }
