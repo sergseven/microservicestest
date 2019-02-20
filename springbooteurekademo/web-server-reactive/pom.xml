@@ -17,7 +17,7 @@
   <properties>
     <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
     <spring-cloud-contract.version>2.1.0.RELEASE</spring-cloud-contract.version>
-    <reactor.version>Bismuth-RELEASE</reactor.version>
+    <reactor.version>Californium-SR5</reactor.version>
     <assertj-core.version>3.11.1</assertj-core.version>
   </properties>
 
