@@ -33,6 +33,6 @@ class AccountsControllerTest {
             .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(content().json("{'number': '12345'}"))
-        .andExpect(content().json("{'owner': 'OWNER_CODE_1'}"));
+        .andExpect(content().json("{'owner': 'Mr Sergey'}"));
   }
 }
