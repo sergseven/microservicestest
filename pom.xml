@@ -11,6 +11,7 @@
 
   <modules>
     <module>springbooteurekademo</module>
+    <module>spring-cassandra-demo</module>
   </modules>
   
   <properties>
