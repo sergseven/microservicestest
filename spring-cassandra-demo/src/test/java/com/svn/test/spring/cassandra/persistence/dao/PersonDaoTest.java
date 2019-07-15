@@ -27,7 +27,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {CassandraConfig.class, ApplicationConfig.class})
 @TestPropertySource(locations = "classpath:cassandra/cassandra.properties")
-@EmbeddedCassandra
+@EmbeddedCassandra(timeout = 20000L)
 @TestExecutionListeners(
     listeners = {
         CassandraUnitDependencyInjectionTestExecutionListener.class,
